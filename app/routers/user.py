@@ -6,7 +6,7 @@ from .. import models, schemas, utils
 from sqlalchemy.orm import Session
 from ..database import engine, get_db
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter(prefix='/users', tags=["Users"])
 
