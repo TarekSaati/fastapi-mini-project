@@ -33,6 +33,8 @@ jobs:
           pytest
 
   deploy:
+    environment: 
+      name: production
     runs-on: ubuntu-latest
     needs: [build]
     steps:
