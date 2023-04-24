@@ -7,13 +7,13 @@ jobs:
     environment:
       name: testing
     env:
-      DB_HOST: {{$DB_HOST}}
-      DB_PORT: {{$DB_PORT}}
-      DB_NAME: {{$DB_NAME}}
-      DB_USERNAME: {{$DB_USERNAME}}
-      DB_PASSWORD: {{$DB_PASSWORD}}
-      SECRET_KEY: {{$SECRET_KEY}}
-      ALGORITHM: {{$ALGORITHM}}
+      DB_HOST: ${{DB_HOST}}
+      DB_PORT: ${{DB_PORT}}
+      DB_NAME: ${{DB_NAME}}
+      DB_USERNAME: ${{DB_USERNAME}}
+      DB_PASSWORD: ${{DB_PASSWORD}}
+      SECRET_KEY: ${{SECRET_KEY}}
+      ALGORITHM: ${{ALGORITHM}}
       ACCESS_TOKEN_EXPIRE_MINUTES: 30
     runs-on: ubuntu-latest
     steps:
