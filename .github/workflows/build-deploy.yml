@@ -4,6 +4,17 @@ on: [push, pull_request]
 
 jobs:
   job1:
+    environment:
+      - name: testing
+    env:
+      DB_HOST: {{$DB_HOST}}
+      DB_PORT: {{$DB_PORT}}
+      DB_NAME: {{$DB_NAME}}
+      DB_USERNAME: {{$DB_USERNAME}}
+      DB_PASSWORD: {{$DB_PASSWORD}}
+      SECRET_KEY: {{$SECRET_KEY}}
+      ALGORITHM: {{$ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: 30
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
@@ -11,7 +22,7 @@ jobs:
       - name: install python 3.9
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          - python-version: '3.9'
       - name: update pip
         run: python -m pip install --upgrade pip
       - name: install requirements
@@ -19,6 +30,4 @@ jobs:
       - name: test with pytest
         run: |
           pip install pytest
-        
-      
-
+          pytest
