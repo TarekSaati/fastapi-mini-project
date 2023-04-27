@@ -33,5 +33,4 @@ def test_vote(authen_client, session, token, test_posts, test_users):
     res = authen_client.post('/votes', json={'post_id': test_posts[0].id, 'dir': 1})
     assert res.status_code == 201
     vote = session.query(models.Vote).filter(models.Vote.post_id == 1).first()
-    print(user.id)
     assert vote.user_id == user.id

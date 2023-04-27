@@ -10,7 +10,7 @@ from app import models, oauth2, utils
 # 'postgresql://<username>:<password>@<host>/<DB name>'
 SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:admin@localhost:5432/fastapi_test'
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, expire_on_commit = False, bind=engine)
 
 @pytest.fixture
 def session():

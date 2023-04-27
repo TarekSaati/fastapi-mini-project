@@ -1,7 +1,8 @@
 # Postgres_tutorial
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from .routers import post, user, authen, vote
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
@@ -22,5 +23,5 @@ app.include_router(authen.router)
 app.include_router(vote.router)
 
 @app.get('/')
-def hello():
-    return {"message": "Hello World!!!"}
+def to_docs():
+    return RedirectResponse('/docs', status_code=status.HTTP_307_TEMPORARY_REDIRECT)
